@@ -58,9 +58,9 @@ function attacher(processor, options) {
             if (pattern.omit && !replace.length) {
                 message = 'Remove ' + value;
             } else {
-                message = 'Replace ' + value + ' with ' +
-                    quotation(replace, '“', '”').join(', ');
-
+                message = 'Replace ' + value + ' with ' + quotation(replace, '“', '”');
+                if ( message instanceof Array ){ message.join(', '); }
+                
                 if (pattern.omit) {
                     message += ', or remove it';
                 }
